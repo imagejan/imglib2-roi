@@ -104,12 +104,13 @@ public class ImgLabeling< T, I extends IntegerType< I > >
 		public LabelingConvertedRandomAccess( final RandomAccess< I > source )
 		{
 			super( source );
-			this.type = new LabelingType< T >( source.get(), mapping, generation );
+			this.type = new LabelingType< T >( null, mapping, generation );
 		}
 
 		@Override
 		public LabelingType< T > get()
 		{
+			type.setType( source.get() );
 			return type;
 		}
 
@@ -127,12 +128,13 @@ public class ImgLabeling< T, I extends IntegerType< I > >
 		public LabelingConvertedCursor( final Cursor< I > source )
 		{
 			super( source );
-			this.type = new LabelingType< T >( source.get(), mapping, generation );
+			this.type = new LabelingType< T >( null, mapping, generation );
 		}
 
 		@Override
 		public LabelingType< T > get()
 		{
+			type.setType( source.get() );
 			return type;
 		}
 
